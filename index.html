@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Countdown Timer</title>
+<title>Mummy bday //Countdown</title>
+<link rel="icon" href="papa1.jpg">
 <style>
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(back.jpg);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #fff;
 }
 
 .countdown-container {
     text-align: center;
+    margin-top: 40%;
 }
 .countdown-container h3{
     margin-left: 2rem;
@@ -29,7 +32,20 @@ body {
     padding: 10px;
     border-radius: 10px;
 }
-
+audio {
+    width: 300px;
+    outline: none;
+    border: 2px solid #76c3f6;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 10px;
+    margin: 15px;
+    display: flex
+}
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display{
+    display: none;
+}
 </style>
 </head>
 <body>
@@ -40,7 +56,19 @@ body {
             <span id="hours"></span> hours
             <span id="minutes"></span> minutes
             <span id="seconds"></span> seconds
-        </div>
+        </div><br>
+        <p style="font-size: 1.5rem; color: #f0f0f0; margin-top: 10rem;">
+            Youn can enjoy the music <br>
+        </p>
+        <audio controls>
+            <source src="Song.mp3" type="audio/mp3">
+        </audio>
+        <audio controls>
+            <source src="Happy Birthday.mp3" type="audio/mp3">
+        </audio>
+        <audio controls>
+            <source src="Thangachi .mp3" type="audio/mp3">
+        </audio>
     </div>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -84,7 +112,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 1000);
     }
+    // alarm
+    document.getElementById("setAlarm").addEventListener("click", function() {
+    // Set an alarm for January 17, 2024, at 11:50 PM
+    const alarmDate = new Date("2024-01-17T23:50:00");
 
+    // Calculate the delay in milliseconds
+    const delay = alarmDate - new Date();
+
+    // Check if the alarm date is in the future
+    if (delay > 0) {
+        setTimeout(function() {
+        alert("Time's up! Alarm triggered at 11:50 PM on January 17, 2024.");
+        }, delay);
+    } else {
+        alert("Invalid date. Please set a future date and time.");
+    }
+});
 </script>
 </body>
 </html>
