@@ -51,7 +51,7 @@ audio::-webkit-media-controls-time-remaining-display{
 <body>
     <div class="countdown-container">
         <h3>Place stay turned upto complete time</h3>
-        <p>Your 21<sup>st</sup> birthday is going to start in....</p>
+        <p>Your 21<sup>st</sup> year is going to start in....</p>
         <div class="countdown" id="countdown">
             <span id="days"></span> days
             <span id="hours"></span> hours
@@ -73,21 +73,24 @@ audio::-webkit-media-controls-time-remaining-display{
     </div>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+    // Set the target date for January 18, 2024, 00:00:00
+    const targetDate = new Date("2024-01-18T00:00:00");
+    
     // Check if the countdown has already expired
     const now = new Date();
-    const targetDate = new Date("2024-01-18T00:00:00");
+    const timeRemaining = targetDate - now;
 
-    if (now >= targetDate) {
-        // Countdown has expired, redirect to dami.html
-        window.location.replace("dami.html");
+    if (timeRemaining <= 0) {
+        // Countdown has expired, show birthday popup
+        showBirthdayPopup();
     } else {
         // Start or continue the countdown
         startCountdown();
     }
-    });
+});
 
-    function startCountdown() {
-    // Set the target date for January 16, 2024, 02:55:00
+function startCountdown() {
+    // Set the target date for January 18, 2024, 00:00:00
     const targetDate = new Date("2024-01-18T00:00:00");
 
     // Update the countdown every second
@@ -96,40 +99,31 @@ document.addEventListener("DOMContentLoaded", function() {
         const timeRemaining = targetDate - now;
 
         if (timeRemaining > 0) {
-        // Calculate days, hours, minutes, and seconds
-        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-        // Update the countdown display
-        document.getElementById("days").textContent = days.toString().padStart(2, "0");
-        document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-        document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
-        document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+            // Update the countdown display
+            document.getElementById("days").textContent = days.toString().padStart(2, "0");
+            document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
         } else {
-        // Countdown has reached zero, redirect to dami.html
-        window.location.replace("dami.html");
+            // Countdown has reached zero, show birthday popup
+            showBirthdayPopup();
         }
     }, 1000);
-    }
-    // alarm
-    document.getElementById("setAlarm").addEventListener("click", function() {
-    // Set an alarm for January 17, 2024, at 11:50 PM
-    const alarmDate = new Date("2024-01-17T23:50:00");
+}
 
-    // Calculate the delay in milliseconds
-    const delay = alarmDate - new Date();
+// Function to show the birthday popup
+function showBirthdayPopup() {
+    alert("Happiest Birthday, mummy! Start your day and year with happiness and joy maa......");
+    // Optionally, you can redirect to another page after showing the popup
+    window.location.replace("dami.html");
+}
 
-    // Check if the alarm date is in the future
-    if (delay > 0) {
-        setTimeout(function() {
-        alert("Time's up! Alarm triggered at 11:50 PM on January 17, 2024.");
-        }, delay);
-    } else {
-        alert("Invalid date. Please set a future date and time.");
-    }
-});
 </script>
 </body>
 </html>
