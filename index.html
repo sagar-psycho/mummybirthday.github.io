@@ -8,17 +8,16 @@
 <style>
 body {
     margin: 0;
-    background-color: #f0f0f0;
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(back.jpg);
-    background-size: cover;
+    background-image: url(back.jpg);
     background-position: center top;
     background-repeat: no-repeat;
     color: #fff;
+    background-size: 400vh;
 }
 
 .countdown-container {
     text-align: center;
-    margin-top: 40%;
+    margin-top: 69%;
 }
 .countdown-container h3{
     margin-left: 2rem;
@@ -32,20 +31,17 @@ body {
     padding: 10px;
     border-radius: 10px;
 }
-audio {
+button {
     width: 300px;
     outline: none;
     border: 2px solid #76c3f6;
     border-radius: 10px;
-    background-color: transparent;
+    background-color: white;
     padding: 10px;
-    margin: 15px;
+    margin: 2rem;
     display: flex
 }
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display{
-    display: none;
-}
+
 </style>
 </head>
 <body>
@@ -58,19 +54,26 @@ audio::-webkit-media-controls-time-remaining-display{
             <span id="minutes"></span> minutes
             <span id="seconds"></span> seconds
         </div><br>
-        <p style="font-size: 1.5rem; color: #f0f0f0; margin-top: 10rem;">
-            You can enjoy the music <br>
+        <p style="font-size: 1.5rem; color: #f3f3f3; margin-top: 25rem;">
+            Youn can enjoy the music <br>
         </p>
-        <audio controls>
-            <source src="Song.mp3" type="audio/mp3">
-        </audio>
-        <audio controls>
-            <source src="Happy Birthday.mp3" type="audio/mp3">
-        </audio>
-        <audio controls>
-            <source src="Thangachi .mp3" type="audio/mp3">
-        </audio>
+        <audio id="audio1" src="Song.mp3"></audio>
+        <audio id="audio2" src="arabic_kuthu.mp3"></audio>
+        <audio id="audio3" src="leo_ordinary.mp3"></audio>
+        <audio id="audio4" src="Happy Birthday.mp3"></audio>
+        <audio id="audio5" src="leo_badass_bgm.mp3"></audio>
+        <audio id="audio6" src="amma_telugu.mp3"></audio>
+        <audio id="audio7" src="kanmanipolen_ammaa.mp3"></audio>
+        
+        <button onclick="playAudio('audio1')" style="text-align: center; justify-content: center;"> Click to Play </button>
+        <button onclick="playAudio('audio2')" style="text-align: center; justify-content: center;"> Click to Play </button>
+        <button onclick="playAudio('audio3')" style="text-align: center; justify-content: center;"> Click to Play </button>
+        <button onclick="playAudio('audio4')" style="text-align: center; justify-content: center;"> Click to Play </button>
+        <button onclick="playAudio('audio5')" style="text-align: center; justify-content: center;"> Click to Play </button>
+        <button onclick="playAudio('audio6')" style="text-align: center; justify-content: center;"> Click to Play </button>
+        <button onclick="playAudio('audio7')" style="text-align: center; justify-content: center;"> Click to Play </button>
     </div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     // Set the target date for January 18, 2024, 00:00:00
@@ -123,7 +126,26 @@ function showBirthdayPopup() {
     // Optionally, you can redirect to another page after showing the popup
     window.location.replace("dami.html");
 }
+//Audio
+var currentAudio;
 
+function playAudio(audioId) {
+    var audioElement = document.getElementById(audioId);
+
+    // Pause the currently playing audio, if any
+    if (currentAudio && currentAudio !== audioElement) {
+        currentAudio.pause();
+    }
+
+    // Play or pause the clicked audio
+    if (audioElement.paused) {
+        audioElement.play();
+        currentAudio = audioElement;
+    } else {
+        audioElement.pause();
+        currentAudio = null;
+    }
+}
 </script>
 </body>
 </html>
