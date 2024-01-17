@@ -296,7 +296,7 @@ function resetTimer() {
 
 function checkInactivity() {
     inactivityTime++;
-    if (inactivityTime >= 120) {
+    if (inactivityTime >= 60) {
     alert("Place log in again");
     window.location.href = "login.html";
 }
