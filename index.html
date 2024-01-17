@@ -46,7 +46,7 @@ button {
 </head>
 <body>
     <div class="countdown-container">
-        <h3>Place stay turned upto complete time</h3>
+        <h3>Please  stay turned upto complete time</h3>
         <p>Your 21<sup>st</sup> year is going to start in....</p>
         <div class="countdown" id="countdown">
             <span id="days"></span> days
@@ -77,7 +77,7 @@ button {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     // Set the target date for January 18, 2024, 00:00:00
-    const targetDate = new Date("2024-01-18T00:00:00");
+    const targetDate = new Date("2024-01-17T17:28:00");
     
     // Check if the countdown has already expired
     const now = new Date();
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function startCountdown() {
     // Set the target date for January 18, 2024, 00:00:00
-    const targetDate = new Date("2024-01-18T00:00:00");
+    const targetDate = new Date("2024-01-17T17:28:00");
 
     // Update the countdown every second
     setInterval(function() {
@@ -122,7 +122,8 @@ function startCountdown() {
 
 // Function to show the birthday popup
 function showBirthdayPopup() {
-    alert("Happiest Birthday, mummy! Start your day and year with happiness and joy maa......");
+    document.title = "SAGAR";
+    alert("ℍ𝕒𝕡𝕡𝕚𝕖𝕤𝕥 𝔹𝕚𝕣𝕥𝕙𝕕𝕒𝕪, 𝕞𝕦𝕞𝕞𝕪💛! 𝕊𝕥𝕒𝕣𝕥 𝕪𝕠𝕦𝕣 𝕕𝕒𝕪 𝕒𝕟𝕕 𝕪𝕖𝕒𝕣 𝕨𝕚𝕥𝕙 𝕙𝕒𝕡𝕡𝕚𝕟𝕖𝕤𝕤 𝕒𝕟𝕕 𝕊𝕞𝕚𝕝𝕖😊 𝕞𝕒𝕒......");
     // Optionally, you can redirect to another page after showing the popup
     window.location.replace("dami.html");
 }
